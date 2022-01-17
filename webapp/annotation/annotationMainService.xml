@@ -5,6 +5,9 @@
 	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
 		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
 	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm"
 			Namespace="SmartControlTutorial.annotation.annotationMainService.EPM_REF_APPS_PROD_MAN_SRV">
@@ -28,10 +31,10 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations Target="Metadata.Product/Name2" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Metadata.Product/Name2">
 				<Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="tutorial_03_Name"/>
 			</Annotations>
-			<Annotations Target="Metadata.Product/Category" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Metadata.Product/Category">
 				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
 					<Record>
 						<PropertyValue Property="Label" String="Category"/>
@@ -48,7 +51,25 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations Target="Metadata.Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Metadata.Product">
+				<Annotation Term="UI.Chart">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Title" String="Products"/>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Price</PropertyPath>
+								<PropertyPath >Quantity</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath >Name</PropertyPath>
+								<PropertyPath >Category</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
 				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
 					<Collection>
 						<Record Type="com.sap.vocabularies.UI.v1.DataField">
