@@ -23,7 +23,30 @@
 							</smartForm:layout>
 							<smartForm:Group>
 								<smartForm:GroupElement>
-									<smartField:SmartField value="{Name}" id="idName" editable="false"/>
+									<smartField:SmartField value="{Name2}" id="idName" editable="false"/>
+								</smartForm:GroupElement>
+							</smartForm:Group>
+						</smartForm:SmartForm>
+						<Title text="Smart form"/>
+						<smartForm:SmartForm id="smartForm" editTogglable="true" title="{Name}" flexEnabled="false">
+							<smartForm:Group label="Product">
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{ProductId}"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{Name}"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement elementForLabel="1">
+									<smartField:SmartField value="{CategoryName}"/>
+									<smartField:SmartField value="{Description}"/>
+								</smartForm:GroupElement>
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{Price}"/>
+								</smartForm:GroupElement>
+							</smartForm:Group>
+							<smartForm:Group label="Supplier">
+								<smartForm:GroupElement>
+									<smartField:SmartField value="{SupplierName}"/>
 								</smartForm:GroupElement>
 							</smartForm:Group>
 						</smartForm:SmartForm>

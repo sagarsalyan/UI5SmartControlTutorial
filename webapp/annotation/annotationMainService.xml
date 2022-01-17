@@ -38,7 +38,7 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations Target="Metadata.Product/Name" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<Annotations Target="Metadata.Product/Name2" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 				<Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="tutorial_03_Name"/>
 			</Annotations>
 		</Schema>
