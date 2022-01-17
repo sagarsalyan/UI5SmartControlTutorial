@@ -1,57 +1,100 @@
 <mvc:View controllerName="app.SmartControlTutorial.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
-	xmlns:smartForm="sap.ui.comp.smartform" xmlns:sap.ui.layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield">
+	xmlns:uxap="sap.uxap" xmlns:smartForm="sap.ui.comp.smartform" xmlns:sap.ui.layout="sap.ui.layout" xmlns:smartField="sap.ui.comp.smartfield"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page id="page" title="Smart Controls">
-					<content>
-						<Title text="Smart Field with value help"/>
-						<smartForm:SmartForm editable="true">
-							<smartForm:layout>
-								<smartForm:ColumnLayout emptyCellsLarge="4" labelCellsLarge="4" columnsM="1" columnsL="1" columnsXL="1"/>
-							</smartForm:layout>
-							<smartForm:Group>
-								<smartForm:GroupElement>
-									<smartField:SmartField value="{Price}" id="idPrice"/>
-								</smartForm:GroupElement>
-							</smartForm:Group>
-						</smartForm:SmartForm>
-						<Title text="Smart link"/>
-						<smartForm:SmartForm editable="true">
-							<smartForm:layout>
-								<smartForm:ColumnLayout emptyCellsLarge="4" labelCellsLarge="4" columnsM="1" columnsL="1" columnsXL="1"/>
-							</smartForm:layout>
-							<smartForm:Group>
-								<smartForm:GroupElement>
-									<smartField:SmartField value="{Name2}" id="idName" editable="false"/>
-								</smartForm:GroupElement>
-							</smartForm:Group>
-						</smartForm:SmartForm>
-						<Title text="Smart form"/>
-						<smartForm:SmartForm id="smartForm" editTogglable="true" title="{Name}" flexEnabled="false">
-							<smartForm:Group label="Product">
-								<smartForm:GroupElement>
-									<smartField:SmartField value="{ProductId}"/>
-								</smartForm:GroupElement>
-								<smartForm:GroupElement>
-									<smartField:SmartField value="{Name}"/>
-								</smartForm:GroupElement>
-								<smartForm:GroupElement elementForLabel="1">
-									<smartField:SmartField value="{CategoryName}"/>
-									<smartField:SmartField value="{Description}"/>
-								</smartForm:GroupElement>
-								<smartForm:GroupElement>
-									<smartField:SmartField value="{Price}"/>
-								</smartForm:GroupElement>
-							</smartForm:Group>
-							<smartForm:Group label="Supplier">
-								<smartForm:GroupElement>
-									<smartField:SmartField value="{SupplierName}"/>
-								</smartForm:GroupElement>
-							</smartForm:Group>
-						</smartForm:SmartForm>
-					</content>
-				</Page>
+				<uxap:ObjectPageLayout id="page" showTitleInHeaderContent="false" upperCaseAnchorBar="true">
+					<uxap:headerTitle>
+						<uxap:ObjectPageHeader objectTitle="Smart Controls"></uxap:ObjectPageHeader>
+					</uxap:headerTitle>
+					<uxap:sections>
+						<uxap:ObjectPageSection title="Smart Field with Value Help (Value help using annotation)">
+							<uxap:subSections>
+								<uxap:ObjectPageSubSection id="smartfield">
+									<uxap:blocks>
+										<smartForm:SmartForm editable="true">
+											<smartForm:layout>
+												<smartForm:ColumnLayout emptyCellsLarge="4" labelCellsLarge="4" columnsM="1" columnsL="1" columnsXL="1"/>
+											</smartForm:layout>
+											<smartForm:Group>
+												<smartForm:GroupElement>
+													<smartField:SmartField value="{Price}" id="idPrice"/>
+												</smartForm:GroupElement>
+											</smartForm:Group>
+										</smartForm:SmartForm>
+									</uxap:blocks>
+								</uxap:ObjectPageSubSection>
+							</uxap:subSections>
+						</uxap:ObjectPageSection>
+						<uxap:ObjectPageSection title="Smart Link">
+							<uxap:subSections>
+								<uxap:ObjectPageSubSection id="smartlink">
+									<uxap:blocks>
+										<smartForm:SmartForm editable="true">
+											<smartForm:layout>
+												<smartForm:ColumnLayout emptyCellsLarge="4" labelCellsLarge="4" columnsM="1" columnsL="1" columnsXL="1"/>
+											</smartForm:layout>
+											<smartForm:Group>
+												<smartForm:GroupElement>
+													<smartField:SmartField value="{Name2}" id="idName" editable="false"/>
+												</smartForm:GroupElement>
+											</smartForm:Group>
+										</smartForm:SmartForm>
+									</uxap:blocks>
+								</uxap:ObjectPageSubSection>
+							</uxap:subSections>
+						</uxap:ObjectPageSection>
+						<uxap:ObjectPageSection title="Smart Form">
+							<uxap:subSections>
+								<uxap:ObjectPageSubSection id="smartform">
+									<uxap:blocks>
+										<smartForm:SmartForm id="smartForm" editTogglable="true" title="{Name}" flexEnabled="false">
+											<smartForm:Group label="Product">
+												<smartForm:GroupElement>
+													<smartField:SmartField value="{ProductId}"/>
+												</smartForm:GroupElement>
+												<smartForm:GroupElement>
+													<smartField:SmartField value="{Name}"/>
+												</smartForm:GroupElement>
+												<smartForm:GroupElement elementForLabel="1">
+													<smartField:SmartField value="{Category}"/>
+													<smartField:SmartField value="{Description}"/>
+												</smartForm:GroupElement>
+												<smartForm:GroupElement>
+													<smartField:SmartField value="{Price}"/>
+												</smartForm:GroupElement>
+											</smartForm:Group>
+											<smartForm:Group label="Supplier">
+												<smartForm:GroupElement>
+													<smartField:SmartField value="{SupplierName}"/>
+												</smartForm:GroupElement>
+											</smartForm:Group>
+										</smartForm:SmartForm>
+									</uxap:blocks>
+								</uxap:ObjectPageSubSection>
+							</uxap:subSections>
+						</uxap:ObjectPageSection>
+						<uxap:ObjectPageSection title="Smart Table">
+							<uxap:subSections>
+								<uxap:ObjectPageSubSection id="smarttable">
+									<uxap:blocks>
+										<VBox>
+											<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="Products">
+												<smartFilterBar:controlConfiguration>
+													<smartFilterBar:ControlConfiguration key="Category" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"></smartFilterBar:ControlConfiguration>
+												</smartFilterBar:controlConfiguration>
+											</smartFilterBar:SmartFilterBar>
+											<smartTable:SmartTable id="smartTable_ResponsiveTable" smartFilterId="smartFilterBar" tableType="ResponsiveTable" editable="false"
+												entitySet="Products" useVariantManagement="false" useTablePersonalisation="false" header="Products" showRowCount="true"
+												useExportToExcel="false" enableAutoBinding="true" enableAutoColumnWidth="true"></smartTable:SmartTable>
+										</VBox>
+									</uxap:blocks>
+								</uxap:ObjectPageSubSection>
+							</uxap:subSections>
+						</uxap:ObjectPageSection>
+					</uxap:sections>
+				</uxap:ObjectPageLayout>
 			</pages>
 		</App>
 	</Shell>
