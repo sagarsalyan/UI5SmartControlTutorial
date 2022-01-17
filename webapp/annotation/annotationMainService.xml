@@ -31,6 +31,23 @@
 			<Annotations Target="Metadata.Product/Name2" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 				<Annotation Term="com.sap.vocabularies.Common.v1.SemanticObject" String="tutorial_03_Name"/>
 			</Annotations>
+			<Annotations Target="Metadata.Product/Category" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+					<Record>
+						<PropertyValue Property="Label" String="Category"/>
+						<PropertyValue Property="CollectionPath" String="Category"/>
+						<PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="Category"/>
+									<PropertyValue Property="ValueListProperty" String="DESCR"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
 			<Annotations Target="Metadata.Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 				<Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
 					<Collection>
